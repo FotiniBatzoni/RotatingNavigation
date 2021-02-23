@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:wght@400;500;700&display=swap');
+
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family:Lato, sans-serif;
+    margin:0;
+    overflow-x: hidden;     /*hides the scrollbar in the x-axes*/
+    background-color:rgb(58, 56, 56);
+    color:#222;
+}
+
+.container{
+    background-color:#fafafa;
+    transform-origin: top left;          /*to move the rotation point to the left top*/
+    transition: transform 0.5s linear;
+    width:100vw;
+    min-height: 100vh; 
+    padding:50px;
+
+}
+
+.container.show-nav{
+   transform:rotate(-20deg);    /* to rotate the page*/
+}
+
+.circle-container{
+    position: fixed;
+    top:-100px;
+    left:-100px;
+}
+
+.circle{
+    background-color:#920c0c;
+    height:200px;
+    width:200px;
+    border-radius:50%;
+    position:relative;          /*to position the buttons inside absolute*/
+    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle{
+    transform: rotate(-70deg);  /*to rotate the circle*/
+}
+
+
+.circle button{
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    left:50%;
+    height:100px;
+    background: transparent;
+    border:0;
+    font-size:26px;
+    color:#fff;
+}
+
+.circle button:focus{
+    outline:none;       /*no border*/
+}
+
+.circle button#open{
+    left:60%;
+
+}
+
+.circle button#close{
+    top:60%;                /*relative to the circle*/
+    transform: rotate(90deg); /*move it 90deg*/
+    transform-origin: top left;
+}
+
+.container.show-nav + nav li{
+    transform:translateX(0);
+    transition-delay:0.3s;
+}
+
+nav{
+    position:fixed;
+    bottom:40px;
+    left:0;
+    z-index:100;
+} 
+
+nav ul {
+    list-style-type:none;
+    padding:30px;
+}
+
+nav ul li{
+  text-transform:uppercase;
+  color:#fff;
+  margin:40px 0;
+  font-weight:400;
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li i{
+    font-size:16px;
+    margin-right:10px;
+ 
+}
+
+nav ul li+li{ /* li+li we get the li and the direct li after that!!!*/
+    margin-left:15px;
+    transform: translateX(-150%);
+}
+
+nav ul li+li+li{
+    margin-left:30px;
+    transform: translateX(-200%);
+}
+
+
+.content img{
+    max-width:100%;
+}
+
+.content{
+    max-width:1200px;
+    margin:30px 150px; /**/
+}
+
+.content h1{
+    margin:0;
+}
+
+.content small {
+    color: #555;
+    font-style: italic;
+}
+
+.content p{
+    color:#333;
+    line-height:1.5;
+}
+
